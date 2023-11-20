@@ -1,0 +1,47 @@
+<style type="text/css">
+	body {
+    background-image: url('imgs/sign-up.jpg');
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+  }
+</style>
+
+<div class='container'>
+	<div class='row justify-content-center'>
+		<div class='col-md-6 mt-5 bg-dark p-4 rounded'>
+			<%= form_with(model: @user, url: sign_up_path) do |form| %>
+				<% if @user.errors.any? %>
+				  <div class="alert alert-danger">
+				    <% @user.errors.full_messages.each do |message| %>
+				      <div><%= message %></div>
+				    <% end %>
+				  </div>
+				<% end %>
+				<div class="mb-3">
+				    <%= form.label :email_address, class:"form-label"%>
+				    <%= form.text_field :email, class:"form-control"%>
+				    <div id="emailHelp" class="form-text" style="color: white;">We'll never share your email with anyone else.</div>
+				</div>
+				<div class="mb-3">
+					<%= form.label :username, class:"form-label" %>
+					<%= form.text_field :username, class: "form-control"%>
+				</div>
+				<div class="mb-3">
+				   <%= form.label :password, class:"form-label"%>
+				    <%= form.password_field :password, class:"form-control"%>
+				</div>
+				<div class="mb-3">
+				    <%= form.label :password_confirmation, class:"form-label"%>
+				    <%= form.password_field :password_confirmation, class:"form-control"%>
+				</div>
+				<div class="mb-3 form-check">
+				    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+				    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+				</div>
+				<%= form.submit "Sign Up", class: "btn btn-primary"  %>
+			<% end %>
+		</div>
+	</div>
+</div>
