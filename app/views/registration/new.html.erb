@@ -1,15 +1,16 @@
 <style type="text/css">
 	body {
-    background-image: url('imgs/sign-up.jpg');
-    background-size: auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white;
+    background-image: url('imgs/sup.jpg');
+    background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	color: white;
   }
 </style>
 
 <div class='container'>
-	<div class='row justify-content-center'>
+	<div class='row '>
 		<div class='col-md-6 mt-5 bg-dark p-4 rounded'>
 			<%= form_with(model: @user, url: sign_up_path) do |form| %>
 				<% if @user.errors.any? %>
