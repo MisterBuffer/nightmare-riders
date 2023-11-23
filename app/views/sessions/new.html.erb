@@ -1,0 +1,36 @@
+<style type="text/css">
+	body {
+    background-image: url('imgs/login.jpg');
+    background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #464646;
+	color: white;
+  }
+</style>
+<h1> LogIn</h1>
+<div class='container'>
+	<div class='row '>
+		<div class='col-md-6 mt-5 bg-dark p-4 rounded'>
+
+			<%= form_with url: login_path do |form| %>
+				<% flash.each do |type, message| %>
+				<div>
+					<%= message %>
+				</div>
+				<% end %>
+				<div class="mb-3">
+					<%= form.label :username, class:"form-label" %>
+					<%= form.text_field :username, class: "form-control"%>
+				</div>
+				<div class="mb-3">
+					<%= form.label :password, class:"form-label"%>
+					<%= form.password_field :password, class:"form-control"%>
+				</div>
+				<%= form.submit "Login", class: "btn btn-primary"  %>
+
+			<% end %>
+		</div>
+	</div>
+</div>

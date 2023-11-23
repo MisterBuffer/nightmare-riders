@@ -1,10 +1,11 @@
-<style type="text/css">
+<style>
 	body {
     background-image: url('imgs/sup.jpg');
     background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
+	background-color: #464646;
 	color: white;
   }
 </style>
@@ -12,7 +13,7 @@
 <div class='container'>
 	<div class='row '>
 		<div class='col-md-6 mt-5 bg-dark p-4 rounded'>
-			<%= form_with(model: @user, url: sign_up_path) do |form| %>
+			<%= form_with(model: @user, html: { multipart: true }, url: sign_up_path) do |form| %>
 				<% if @user.errors.any? %>
 				  <div class="alert alert-danger">
 				    <% @user.errors.full_messages.each do |message| %>
@@ -37,6 +38,11 @@
 				    <%= form.label :password_confirmation, class:"form-label"%>
 				    <%= form.password_field :password_confirmation, class:"form-control"%>
 				</div>
+				<div class="mb-3">
+					<%= form.file_field :avatar %>
+
+				</div>
+				
 				<div class="mb-3 form-check">
 				    <input type="checkbox" class="form-check-input" id="exampleCheck1">
 				    <label class="form-check-label" for="exampleCheck1">Check me out</label>

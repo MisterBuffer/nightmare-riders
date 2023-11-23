@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   # root "posts#index"
   #GET /about
   get "about-us", to: "about#index", as: :about
-  get "sign-up", to: "registration#new"
-  post "sign-up", to: "registration#create"
+  get "/sign-up", to: "registration#new"
+  post "/sign-up", to: "registration#create"
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+  
   root to: "main#index"
 end
