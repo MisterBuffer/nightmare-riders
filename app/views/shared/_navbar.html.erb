@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">Navbar</a>
+    <a class="navbar-brand" href="/">NightMare Riders</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -37,12 +37,31 @@
         </li>
         
     </div>
-    <div class="nav-bar-nav d-flex flex-row-reverse">
+    <div class="nav-bar-nav  flex-row-reverse">
           <ul class="navbar-nav">
           <% if Current.user %>
-           <li class='nav-item'>
-             <%= link_to image_tag(Current.user.avatar.variant(resize: "50x50"), alt: "Profile", class: "avatar"%>
-            <%= button_to "Logout", logout_path, method: :delete, class:"btn btn-outline-danger" %>
+           <li class='nav-item me-5'>
+            <div class="nav-bar-nav flex-row-reverse dropdown">
+                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <% if Current.user.avatar.attached?%>
+                  <img src="<%= url_for(Current.user.avatar) %>" alt="Profile" class="rounded-circle" style="width:45px; height=45px;">
+                  <% else %>
+                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" style="width:45px;height:45px;">
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                    </svg>
+                  <% end %>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                   <li><a class="dropdown-item" href="#">My Gallery</a></li>
+
+                  <li>
+                    <%= button_to "Logout", logout_path, method: :delete, class:"btn btn-outline-danger ms-3" %>
+                  </li>
+                </ul>
+              </div>
           </li>
           <% else %>
           <li class='nav-item'>
