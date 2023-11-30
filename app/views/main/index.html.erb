@@ -7,15 +7,61 @@
 	    background-size: cover;
 	   	color: white;
 	}
+	/* Καθορίζετε το border χωρίς χρώμα */
+	.find_list {
+	  border: 5px solid transparent;
+	  /* Εδώ ορίζετε το animation */
+	  animation: colorwave 5s infinite;
+	}
+
+	/* Ορίζετε το keyframe animation */
+	@keyframes colorwave {
+	  0% {
+	    border-color: rgb(255, 0, 0); /* Κόκκινο */
+	  }
+	  25% {
+	    border-color: rgb(0, 255, 0); /* Πράσινο */
+	  }
+	  50% {
+	    border-color: rgb(0, 0, 255); /* Μπλε */
+	  }
+	  60% {
+	    border-color: rgb(255, 0, 0); /* Επιστροφή στο κόκκινο */
+	  }
+	  100%{
+	  	border-color: rgb(255, 165, 0)
+	  }
+	}
 </style>
 
- <div class="container mt-5">
+<section class=" py-5 d-flex align-items-center justify-content-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1 class="display-4">Welcome to NightMare Riders</h1>
+        <hr class="my-4">
+        <p class="lead" style="text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;">Where a passionate love of cars meets an endless community of bonding and sharing!</p>
+        <p style="text-shadow: 1px 1px 2px grey, 0 0 1em black, 0 0 0.2em black;">Here at the Car Community, we offer a place for car enthusiasts to express themselves, share their experiences, and connect with others who share this passion.</p>
+        <hr class="my-4 text-black">
+        <h2 class="mb-4">What You'll Find in Our Community:</h2>
+        <ul class="list-group mb-4 find_list">
+          <li class="list-group-item text-black">Car Enthusiast Community: A vibrant community of car-loving members available for discussions, photo sharing, and advice.</li>
+          <li class="list-group-item text-black">Car Photos: A place to showcase your favorite art, displaying your car photos and inspiring others.</li>
+          <li class="list-group-item text-black">Tips and Instructions: Helpful tips and instructions to improve your experience with your cars, and get ideas for future improvements.</li>
+          <li class="list-group-item text-black">Meetings and Events: Information on events, distances, and car meets organized by the community.</li>
+        </ul>
+        <p class="lead" style="text-shadow: 1px 1px 2px grey, 0 0 1em black, 0 0 0.2em black;">Connect with us today and join the friendliest and most fun car community on the web! Simply sign up and start your journey with our team.</p>
+        <p class="font-italic text-white">We welcome you to our family of cars!</p>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-5">
     <div class="jumbotron">
-      <h1 class="display-4">Welcome to NightMare Riders</h1>
-      <p class="lead">Join us to share your car photos, discuss your favorite cars, and connect with other car enthusiasts! <a class="link-info link-offset-3" href="#about">see more</a></p>
+      <p class="lead" style="text-shadow: 1px 1px 2px gold, 0 0 1em red, 0 0 0.2em red;">Join us to share your car photos, discuss your favorite cars, and connect with other car enthusiasts! <a class="link-info link-offset-3" href="#about">see more</a></p>
       <hr class="my-4">
-      <p>Sign up now to become a part of our community.</p>
+      <p style="text-shadow: 1px 1px 2px gold, 0 0 1em black, 0 0 0.2em black;">Sign up now to become a part of our community.</p>
       <a class="btn btn-warning btn-lg " href="/sign-up" role="button">Sign Up</a>
       <p>if you are already a member of our community <a href="/login"class="link-info link-offset-3">click here!</a></p>
-    </div>
+
+     </div>
   </div>
