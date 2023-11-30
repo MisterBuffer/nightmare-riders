@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  
+  get "/profile", to: "profile#index"
+  put "/profile", to: "profile#save_bio"
   root to: "main#index"
 end

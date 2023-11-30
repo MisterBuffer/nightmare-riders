@@ -1,0 +1,36 @@
+<h1>Profile</h1>
+
+<div class="container">
+	<div class="row g-0 bg-body-secondary position-relative">
+		<div class="col-md-5 mb-md-0 p-md-4">
+			<% if Current.user.avatar.attached? %>
+				<img src="<%= url_for(Current.user.avatar) %>" alt="Profile Picture" class="img-thumbnail" style="width: 250px;">
+			<% else %>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" style="width:45px;height:45px;">
+		                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+		                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+		        </svg>
+			<% end %>
+		</div>
+			<div class="col-md-6 p-4 ps-md-0">
+				<h3 class="mt-0">Bio</h3>
+				<div class="position-absolute bottom-0 end-0 p-3">
+					<button id="show_input" class="btn btn-primary" onclick="showInput()">Edit your Bio</button>
+				</div>
+				<div id="inputFields" style="display: none;">
+					
+				
+				  	<div class="input-group mb-3" id="inputValues">
+				  		<% form_with(model: @user, url: profile_path(@user), method: :put) do |form| %>
+				        <%= form.text_field :bio, class: "form-control", id: "myInput", rows: 4 %>
+
+				    	<%= form.submit "Save", class:"btn btn-primary"%>
+				    <% end %>
+				  </div>
+				  <p id="savedText"></p>
+				</div>
+
+	</div>
+</div>
+
+<%= javascript_include_tag 'app/assets/javascripts/bios' %>
